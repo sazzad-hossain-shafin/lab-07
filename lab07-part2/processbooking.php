@@ -19,19 +19,21 @@ $food = $_POST["food"];
 $partysize = $_POST["partysize"];
 
 // booking options
-$booking = "";
+$booking_array = array();
 
 if (isset($_POST["accom"])) {
-    $booking .= "Accommodation ";
+    $booking_array[] = "Accommodation";
 }
 
 if (isset($_POST["4day"])) {
-    $booking .= "Four-day tour ";
+    $booking_array[] = "Four-day tour";
 }
 
 if (isset($_POST["10day"])) {
-    $booking .= "Ten-day tour ";
+    $booking_array[] = "Ten-day tour";
 }
+
+$booking = implode(" and ", $booking_array);
 
 // display output
 echo "<p>Welcome $firstname $lastname !</p>";
